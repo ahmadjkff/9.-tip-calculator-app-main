@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo-img" src="images/logo.svg" alt="logo image" />
+      <div class="card">
+        <div class="card__left">
+          <span class="input-description">Bill</span>
+          <input
+            id="bill-input"
+            class="card__left__bill-input input"
+            type="number"
+            name="bill"
+            min="1"
+          />
+          <img
+            class="dollar-icon"
+            src="images/icon-dollar.svg"
+            alt="dollar icon"
+          />
+          <span class="input-description tip-description">Select Tip %</span>
+          <div class="tip-buttons">
+            <button id="5%" class="tip-button">5%</button>
+            <button id="10%" class="tip-button">10%</button>
+            <button id="15%" class="tip-button">15%</button>
+            <button id="25%" class="tip-button">25%</button>
+            <button id="50%" class="tip-button">50%</button>
+            <input 
+            id="custom-button" 
+            class="tip-button tip-custom-button input" 
+            type="number" 
+            name="custom" 
+            placeholder="Custom" 
+            min="0" 
+            max="100">
+          </input>
+          </div>
+
+          <span class="input-description">Number Of People</span>
+          <img
+            class="person-icon"
+            src="images/icon-person.svg"
+            alt="person icon"
+          />
+          <input
+            id="person-input"
+            class="card__left-person-input input" 
+            type="number"
+            name="person"
+            min="1"
+          />
+        </div>
+
+        <div class="card__right">
+          <div class="card__right-top">
+            <div class="card__right-top-left">
+              <h5 class="h5-heading">Tip Amount</h5>
+              <span class="per-person">/ person</span>
+            </div>
+            <h1 class="result" id="tip-amount">$<span id="tip-result">0.00</span></h1>
+          </div>
+
+          <div class="card__right-top">
+            <div class="card__right-top-left">
+              <h5 class="h5-heading">Total</h5>
+              <span class="per-person">/ person</span>
+            </div>
+            <h1 class="result" id="total-amount">$<span id="total-result">0.00</span></h1>
+
+          </div>
+
+          <button id="result" class="result__button">Result</button>
+        </div>          
+
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
