@@ -28,4 +28,4 @@ I'm still working on this project.
 
 - Error handling
 - Responsive design
-  And more
+- And more
