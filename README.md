@@ -26,6 +26,6 @@ I'm still working on this project.
 
 # Features Will be added
 
-- Error handling
+- Error handling  Done ✅
 - Responsive design
 - And more
