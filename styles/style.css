@@ -157,16 +157,25 @@ input {
   border-color: var(--strong-cyan);
 }
 
+.input1 {
+  position: relative;
+}
+
 .dollar-icon {
   position: absolute;
   left: 2.7rem;
   top: 4.2rem;
 }
 
+.input2 {
+  position: relative;
+}
+
 .person-icon {
   position: absolute;
   bottom: 5rem;
   left: 2.7rem;
+  z-index: 1;
 }
 
 .per-person {

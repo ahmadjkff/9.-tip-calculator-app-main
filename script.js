@@ -14,8 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateScreen(tipValue, totalValue) {
     const persons = parseFloat(document.getElementById("person-input").value);
-    tipResult.textContent = parseFloat(tipValue / persons);
-    totalResult.textContent = parseFloat(totalValue);
+
+    if (tipValue) {
+      tipResult.textContent = parseFloat(tipValue / persons).toFixed(2);
+    } else {
+      tipResult.textContent = (0.0).toFixed(2);
+    }
+    totalResult.textContent = parseFloat(totalValue).toFixed(2);
   }
 
   function calcTip(tipValue, amount) {
@@ -25,7 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function calcTotal(amount, persons, tip) {
-    return (amount + tip) / persons;
+    if (tip) {
+      return (amount + tip) / persons;
+    } else {
+      return amount / persons;
+    }
   }
 
   {
