@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tipResult = document.getElementById("tip-result");
   const totalResult = document.getElementById("total-result");
-  const inputElements = document.querySelectorAll(".input");
   const Tip5 = document.getElementById("5%");
   const Tip10 = document.getElementById("10%");
   const Tip15 = document.getElementById("15%");
@@ -9,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const Tip50 = document.getElementById("50%");
   const customTipInput = document.getElementById("custom-button");
   const resultButton = document.getElementById("result");
+  const billErr = document.querySelector(".bill-error-msg");
+  const peopleErr = document.querySelector(".people-error-msg");
   let tipValue;
 
   function updateScreen(tipValue, totalValue) {
@@ -58,21 +59,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function CheckValidity(bill, people) {
+    let isValid = [false, false];
+
+    if (isNaN(bill) || bill < 1) {
+      billErr.textContent = "Must be a positive number";
+    } else {
+      isValid[0] = true;
+      billErr.textContent = "";
+    }
+
+    if (isNaN(people) || people < 1) {
+      peopleErr.textContent = "Must be a positive number";
+    } else {
+      isValid[1] = true;
+      peopleErr.textContent = "";
+    }
+
+    return isValid.every((item) => item === true);
+  }
+
   function clickHandler() {
-    const billInputValue =
-      parseFloat(document.getElementById("bill-input").value) || 0;
-    const personInputValue =
-      parseFloat(document.getElementById("person-input").value) || 1;
+    const billInputValue = parseFloat(
+      document.getElementById("bill-input").value
+    );
+    const personInputValue = parseFloat(
+      document.getElementById("person-input").value
+    );
+
+    if (!CheckValidity(billInputValue, personInputValue)) {
+      updateScreen(0, 0);
+      return;
+    }
+
     let tip = calcTip(tipValue, billInputValue);
     let total = calcTotal(billInputValue, personInputValue, tip);
     updateScreen(tip, total);
   }
 
   resultButton.addEventListener("click", () => clickHandler());
-
-  inputElements.forEach((item) => {
-    item.addEventListener("keydown", (e) => {
-      e.key === "Enter" && clickHandler();
-    });
-  });
 });
